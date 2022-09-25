@@ -5,6 +5,7 @@
 /////////////////////////////////////////////////////////////////////
 // Author : Nicolas Chourot
 // Lionel-Groulx College
+// Modifier Par Samuel Houle dans le cadre du TP2
 /////////////////////////////////////////////////////////////////////
 
 const fs = require('fs');
@@ -129,7 +130,6 @@ class Repository {
         if (params) {
             let model = this.model;
             let filteredAndSortedObjects = [];
-            // TODO Laboratoire 2
             let sortKeys = [];
             let searchKeys = [];
             Object.keys(params).forEach(function (paramName) {
@@ -162,8 +162,6 @@ class Repository {
                 });
                 return match;
             });
-
-            //TODO ADD SORT
 
             filteredAndSortedObjects.sort((a,b)=>{
                 console.log(a[sortKeys[0]['key']]);
