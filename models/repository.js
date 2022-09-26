@@ -163,11 +163,12 @@ class Repository {
                 return match;
             });
             filteredAndSortedObjects.sort((a,b)=>{
-                if ((typeof a[sortKeys[0]['key']]) === 'string')
-                    return a[sortKeys[0]['key']].localeCompare(b[sortKeys[0]['key']]);
-                else
-                    return this.compareNum(a,b);
-            });
+                let orderByKey = sortKeys[0]['key'];
+                  if ((typeof a[orderByKey]) === 'string')
+                      return a[orderByKey].localeCompare(b[orderByKey]);
+                  else
+                      return this.compareNum(a[orderByKey],b[orderByKey]);
+              });
             
            filteredAndSortedObjects = sortKeys[0]['asc']? filteredAndSortedObjects : filteredAndSortedObjects.reverse(); 
 
