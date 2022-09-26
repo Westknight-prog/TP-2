@@ -163,7 +163,6 @@ class Repository {
                 return match;
             });
             filteredAndSortedObjects.sort((a,b)=>{
-                console.log(sortKeys);
                 if ((typeof a[sortKeys[0]['key']]) === 'string')
                     return a[sortKeys[0]['key']].localeCompare(b[sortKeys[0]['key']]);
                 else
