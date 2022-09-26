@@ -153,7 +153,7 @@ class Repository {
             });
             if(sortKeys.length<=0)
                 sortKeys.push({ key: "Id", asc: true });
-            
+
             filteredAndSortedObjects = objectsList.filter((item)=>{
                 let match = true;
                 searchKeys.forEach(element=>{
