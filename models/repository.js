@@ -147,12 +147,12 @@ class Repository {
                         sortKeys.push({ key: value[0], asc: !descendant });
                     }
                 } else {
-                    sortKeys.push({ key: "Id", asc: true });
                     if (paramName in model)
                         searchKeys.push({ key: paramName, value: params[paramName] });
                 }
             });
-
+            if(sortKeys.length<=0)
+                sortKeys.push({ key: "Id", asc: true });
             
             filteredAndSortedObjects = objectsList.filter((item)=>{
                 let match = true;
@@ -162,10 +162,8 @@ class Repository {
                 });
                 return match;
             });
-
             filteredAndSortedObjects.sort((a,b)=>{
-                console.log(a[sortKeys[0]['key']]);
-
+                console.log(sortKeys);
                 if ((typeof a[sortKeys[0]['key']]) === 'string')
                     return a[sortKeys[0]['key']].localeCompare(b[sortKeys[0]['key']]);
                 else
